@@ -1,19 +1,16 @@
 {{ define "main" }}
 <content>
-  {{ .Content }}
-
   {{ $emoji := dict "野菜" "🥬" "果物" "🍎" "肉" "🍖" "魚介" "🐟" "調味料・スパイス" "🧂" "乳製品・卵" "🥚" "穀物・豆類" "🌾" }}
 
-  <h2 class="section-heading">🍳 カテゴリから探す</h2>
-  <ul class="category-grid">
-    {{ range slice "野菜" "果物" "肉" "魚介" "調味料・スパイス" "乳製品・卵" "穀物・豆類" }}
-    <li><a href="{{ printf "categories/%s/" . | relURL }}"><span aria-hidden="true">{{ index $emoji . }}</span>{{ . }}</a></li>
-    {{ end }}
-  </ul>
+  {{ if .Data.Singular }}
+  <h3 class="filter-heading">{{ with index $emoji .Title }}{{ . }} {{ end }}「{{ .Title }}」の記事</h3>
+  <p class="filter-clear">
+    <a href="{{ "posts/" | relURL }}">← 記事一覧にもどる</a>
+  </p>
+  {{ end }}
 
-  <h2 class="section-heading">🆕 新着記事</h2>
   <ul class="blog-posts">
-    {{ range first 10 (where .Site.RegularPages "Section" "posts") }}
+    {{ range .Pages }}
     {{ $cat := "" }}
     {{ with .Params.categories }}{{ $cat = index . 0 }}{{ end }}
     <li class="post-card">
@@ -29,5 +26,13 @@
     <li>まだ記事がありません</li>
     {{ end }}
   </ul>
+
+  {{ if not .Data.Singular }}
+  <div class="tag-cloud">
+    {{ range .Site.Taxonomies.tags }}
+    <a href="{{ .Page.Permalink }}" class="tag-pill">#{{ .Page.Title }}</a>
+    {{ end }}
+  </div>
+  {{ end }}
 </content>
 {{ end }}
