@@ -1,0 +1,30 @@
+{{ define "main" }}
+<content>
+  {{ .Content }}
+
+  <h2>カテゴリから探す</h2>
+  <ul>
+    {{ range slice "野菜" "果物" "肉" "魚介" "調味料・スパイス" "乳製品・卵" "穀物・豆類" }}
+    <li><a href="{{ printf "categories/%s/" . | relURL }}">{{ . }}</a></li>
+    {{ end }}
+  </ul>
+
+  <h2>新着記事</h2>
+  <ul class="blog-posts">
+    {{ range first 10 (where .Site.RegularPages "Section" "posts") }}
+    <li>
+      <span>
+        <i>
+          <time datetime='{{ .Date.Format "2006-01-02" }}'>
+            {{ .Date.Format (default "02 Jan, 2006" .Site.Params.dateFormat) }}
+          </time>
+        </i>
+      </span>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </li>
+    {{ else }}
+    <li>まだ記事がありません</li>
+    {{ end }}
+  </ul>
+</content>
+{{ end }}

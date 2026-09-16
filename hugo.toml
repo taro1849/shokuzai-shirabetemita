@@ -1,0 +1,32 @@
+baseURL = 'https://taro1849.github.io/shokuzai-shirabetemita/'
+locale = 'ja-JP'
+title = '食材調べてみた'
+theme = 'hugo-bearblog'
+
+enableRobotsTXT = true
+
+# カテゴリ・タグの一覧ページ(/categories/ 全体一覧など)は生成しない。
+# 個別カテゴリページ(/categories/野菜/ など)は通常どおり生成される。
+disableKinds = ['taxonomy']
+ignoreErrors = ['error-disable-taxonomy']
+
+[pagination]
+  pagerSize = 10
+
+[permalinks]
+  posts = '/posts/:slug/'
+
+[params]
+  title = '食材調べてみた'
+  description = '野菜・果物・肉・魚介・調味料など、身近な食材をひとつずつ深掘りして調べるブログ'
+  dateFormat = '2006-01-02'
+
+[[menus.main]]
+  name = 'Home'
+  url = '/'
+  weight = 1
+
+[[menus.main]]
+  name = '記事一覧'
+  url = '/posts/'
+  weight = 2
