@@ -1,9 +1,7 @@
 {{ define "main" }}
 <content>
-  {{ $emoji := dict "野菜" "🥬" "果物" "🍎" "肉" "🍖" "魚介" "🐟" "調味料・スパイス" "🧂" "乳製品・卵" "🥚" "穀物・豆類" "🌾" }}
-
   {{ if .Data.Singular }}
-  <h3 class="filter-heading">{{ with index $emoji .Title }}{{ . }} {{ end }}「{{ .Title }}」の記事</h3>
+  <h3>「{{ .Title }}」の記事</h3>
   <p class="filter-clear">
     <a href="{{ "posts/" | relURL }}">← 記事一覧にもどる</a>
   </p>
@@ -11,16 +9,11 @@
 
   <ul class="blog-posts">
     {{ range .Pages }}
-    {{ $cat := "" }}
-    {{ with .Params.categories }}{{ $cat = index . 0 }}{{ end }}
-    <li class="post-card">
-      <span class="post-emoji" aria-hidden="true">{{ with index $emoji $cat }}{{ . }}{{ else }}📝{{ end }}</span>
-      <span class="post-meta">
-        <a href="{{ .Permalink }}" class="post-title">{{ .Title }}</a>
-        <time datetime='{{ .Date.Format "2006-01-02" }}'>
-          {{ .Date.Format (default "2006-01-02" .Site.Params.dateFormat) }}
-        </time>
-      </span>
+    <li class="post-row">
+      <a href="{{ .Permalink }}" class="post-title">{{ .Title }}</a>
+      <time datetime='{{ .Date.Format "2006-01-02" }}'>
+        {{ .Date.Format (default "2006-01-02" .Site.Params.dateFormat) }}
+      </time>
     </li>
     {{ else }}
     <li>まだ記事がありません</li>

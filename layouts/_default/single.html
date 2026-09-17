@@ -1,0 +1,24 @@
+{{ define "main" }}
+{{ if eq .Section "posts" }}{{ if not .Params.menu }}
+<p class="post-eyebrow">
+  <time datetime='{{ .Date.Format "2006-01-02" }}'>
+    {{ .Date.Format (default "2006-01-02" .Site.Params.dateFormat) }}
+  </time>
+  {{ with .Params.categories }}<span class="post-category">{{ delimit . " / " }}</span>{{ end }}
+</p>
+<h1 class="post-title-main">{{ .Title }}</h1>
+{{ end }}{{ end }}
+<content>
+  {{ .Content }}
+</content>
+
+{{ if eq .Section "posts" }}{{ if (.Param "enablePostNavigator")}}
+{{- partial "post_navigator.html" . -}}
+{{ end }}{{ end }}
+
+<div class="tag-cloud">
+  {{ range (.GetTerms "tags") }}
+  <a href="{{ .Permalink }}" class="tag-pill">#{{ .LinkTitle }}</a>
+  {{ end }}
+</div>
+{{ end }}

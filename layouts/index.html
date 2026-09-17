@@ -2,28 +2,21 @@
 <content>
   {{ .Content }}
 
-  {{ $emoji := dict "野菜" "🥬" "果物" "🍎" "肉" "🍖" "魚介" "🐟" "調味料・スパイス" "🧂" "乳製品・卵" "🥚" "穀物・豆類" "🌾" }}
-
-  <h2 class="section-heading">🍳 カテゴリから探す</h2>
-  <ul class="category-grid">
+  <h2 class="section-heading">カテゴリから探す</h2>
+  <ul class="category-list">
     {{ range slice "野菜" "果物" "肉" "魚介" "調味料・スパイス" "乳製品・卵" "穀物・豆類" }}
-    <li><a href="{{ printf "categories/%s/" . | relURL }}"><span aria-hidden="true">{{ index $emoji . }}</span>{{ . }}</a></li>
+    <li><a href="{{ printf "categories/%s/" . | relURL }}">{{ . }}</a></li>
     {{ end }}
   </ul>
 
-  <h2 class="section-heading">🆕 新着記事</h2>
+  <h2 class="section-heading">新着記事</h2>
   <ul class="blog-posts">
     {{ range first 10 (where .Site.RegularPages "Section" "posts") }}
-    {{ $cat := "" }}
-    {{ with .Params.categories }}{{ $cat = index . 0 }}{{ end }}
-    <li class="post-card">
-      <span class="post-emoji" aria-hidden="true">{{ with index $emoji $cat }}{{ . }}{{ else }}📝{{ end }}</span>
-      <span class="post-meta">
-        <a href="{{ .Permalink }}" class="post-title">{{ .Title }}</a>
-        <time datetime='{{ .Date.Format "2006-01-02" }}'>
-          {{ .Date.Format (default "2006-01-02" .Site.Params.dateFormat) }}
-        </time>
-      </span>
+    <li class="post-row">
+      <a href="{{ .Permalink }}" class="post-title">{{ .Title }}</a>
+      <time datetime='{{ .Date.Format "2006-01-02" }}'>
+        {{ .Date.Format (default "2006-01-02" .Site.Params.dateFormat) }}
+      </time>
     </li>
     {{ else }}
     <li>まだ記事がありません</li>
