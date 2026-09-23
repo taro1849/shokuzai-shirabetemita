@@ -2,3 +2,5 @@ public/
 public_preview/
 resources/_gen/
 .hugo_build.lock
+.env
+素材/
