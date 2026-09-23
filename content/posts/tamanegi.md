@@ -1,7 +1,7 @@
 ---
 title: "玉ねぎを調べてみた"
-date: 2026-09-16
-draft: true
+date: 2026-09-23
+draft: false
 categories: ["野菜"]
 tags: ["玉ねぎ", "野菜", "栄養"]
 ---
