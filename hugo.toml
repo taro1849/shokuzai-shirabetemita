@@ -5,6 +5,10 @@ theme = 'hugo-bearblog'
 
 enableRobotsTXT = true
 
+# 記事本文(Markdown)内で "/images/..." のようなルート相対パスを書いても、
+# GitHub Pagesのサブパス(/shokuzai-shirabetemita/)込みの正しいURLに自動変換されるようにする。
+canonifyURLs = true
+
 # カテゴリ・タグの一覧ページ(/categories/ 全体一覧など)は生成しない。
 # 個別カテゴリページ(/categories/野菜/ など)は通常どおり生成される。
 disableKinds = ['taxonomy']
