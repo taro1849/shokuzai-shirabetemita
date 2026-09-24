@@ -113,6 +113,47 @@
     text-decoration: none;
   }
 
+  /* article table of contents */
+  .post-toc {
+    background: var(--accent-soft);
+    border-left: 4px solid var(--accent-color);
+    border-radius: 4px;
+    padding: 18px 22px;
+    margin: 24px 0 36px;
+  }
+
+  .post-toc-title {
+    font-weight: 700;
+    color: var(--heading-color);
+    margin: 0 0 10px;
+    font-size: 0.95em;
+  }
+
+  .post-toc nav#TableOfContents ul,
+  .post-toc ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .post-toc li {
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .post-toc li:last-child {
+    border-bottom: none;
+  }
+
+  .post-toc a {
+    color: var(--text-color);
+    font-size: 0.95em;
+  }
+
+  .post-toc a:hover {
+    color: var(--accent-color);
+  }
+
   /* headings inside the page body get a terracotta rule */
   h1, h2, h3 {
     font-family: var(--font-main);

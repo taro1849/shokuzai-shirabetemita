@@ -7,6 +7,12 @@
   {{ with .Params.categories }}<span class="post-category">{{ delimit . " / " }}</span>{{ end }}
 </p>
 <h1 class="post-title-main">{{ .Title }}</h1>
+{{ with .TableOfContents }}
+<nav class="post-toc">
+  <p class="post-toc-title">目次</p>
+  {{ . }}
+</nav>
+{{ end }}
 {{ end }}{{ end }}
 <content>
   {{ .Content }}
