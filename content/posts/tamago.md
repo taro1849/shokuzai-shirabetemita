@@ -4,6 +4,8 @@ date: 2026-09-24
 draft: true
 categories: ["乳製品・卵"]
 tags: ["卵", "乳製品・卵", "栄養"]
+description: "卵の歴史、アミノ酸スコア100の栄養、ゆで加減で変わる味の違いまで、料理好きが実際に調べてまとめました。"
+images: ["images/posts/tamago/01-intro.jpg"]
 ---
 
 ## はじめに

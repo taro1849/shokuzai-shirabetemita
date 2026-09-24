@@ -24,6 +24,7 @@ ignoreErrors = ['error-disable-taxonomy']
   title = '食材調べてみた'
   description = '野菜・果物・肉・魚介・調味料など、身近な食材をひとつずつ深掘りして調べるブログ'
   dateFormat = '2006-01-02'
+  images = ['images/hero-vegetables.jpg']
 
 [[menus.main]]
   name = 'Home'

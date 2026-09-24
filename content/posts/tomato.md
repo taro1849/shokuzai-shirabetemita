@@ -4,6 +4,8 @@ date: 2026-09-24
 draft: false
 categories: ["野菜"]
 tags: ["トマト", "野菜", "栄養"]
+description: "トマトの歴史、リコピンなどの栄養、完熟度や品種で変わる味の違いまで、料理好きが実際に調べてまとめました。"
+images: ["images/posts/tomato/01-intro.jpg"]
 ---
 
 ## はじめに

@@ -4,6 +4,8 @@ date: 2026-09-23
 draft: false
 categories: ["野菜"]
 tags: ["玉ねぎ", "野菜", "栄養"]
+description: "玉ねぎの歴史、硫化アリルやケルセチンなどの栄養、縦切り・横切りで変わる味の違いまで、料理好きが実際に調べてまとめました。"
+images: ["images/posts/tamanegi/01-intro.jpg"]
 ---
 
 ## はじめに
