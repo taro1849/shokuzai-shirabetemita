@@ -1,0 +1,11 @@
+{{ range .Site.Menus.main }}
+<a href="{{ .URL }}">{{ .Name }}</a>
+{{ end }}
+<div class="nav-dropdown">
+  <span class="nav-dropdown-toggle">カテゴリ ▾</span>
+  <div class="nav-dropdown-menu">
+    {{ range slice "野菜" "果物" "肉" "魚介" "調味料・スパイス" "乳製品・卵" "穀物・豆類" }}
+    <a href="{{ printf "categories/%s/" . | relURL }}">{{ . }}</a>
+    {{ end }}
+  </div>
+</div>

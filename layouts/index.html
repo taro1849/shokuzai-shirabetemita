@@ -13,18 +13,21 @@
   </ul>
 
   <h2 class="section-heading">新着記事</h2>
-  <ul class="blog-posts">
+  <ul class="post-grid">
     {{ range first 10 (where .Site.RegularPages "Section" "posts") }}
-    <li class="post-row">
-      {{ with .Params.images }}
-      <img class="post-thumb" src="{{ index . 0 | relURL }}" alt="" loading="lazy">
-      {{ end }}
-      <div class="post-meta">
-        <a href="{{ .Permalink }}" class="post-title">{{ .Title }}</a>
-        <time datetime='{{ .Date.Format "2006-01-02" }}'>
-          {{ .Date.Format (default "2006-01-02" .Site.Params.dateFormat) }}
-        </time>
-      </div>
+    <li class="post-card">
+      <a href="{{ .Permalink }}" class="post-card-link">
+        {{ with .Params.images }}
+        <img class="post-card-thumb" src="{{ index . 0 | relURL }}" alt="" loading="lazy">
+        {{ end }}
+        <div class="post-card-body">
+          {{ with .Params.categories }}<span class="post-card-category">{{ index . 0 }}</span>{{ end }}
+          <span class="post-card-title">{{ .Title }}</span>
+          <time datetime='{{ .Date.Format "2006-01-02" }}'>
+            {{ .Date.Format (default "2006-01-02" .Site.Params.dateFormat) }}
+          </time>
+        </div>
+      </a>
     </li>
     {{ else }}
     <li>まだ記事がありません</li>
